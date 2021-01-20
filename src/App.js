@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Users from './components/Users/Users';
+import Posts from './components/Posts/Posts';
+import Input from './components/Popup/Input';
+import AllPosts from './components/AllPosts/AllPosts';
+import PutPost from './components/Popup/PutPost';
+import DeletePost from './components/Popup/DeletePost';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Users} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/input" component={Input} />
+          <Route path="/allposts" component={AllPosts} />
+          <Route path="/put" component={PutPost} />
+          <Route path="/delete" component={DeletePost} />
+        </Switch>
+      </Router>
     </div>
   );
 }
